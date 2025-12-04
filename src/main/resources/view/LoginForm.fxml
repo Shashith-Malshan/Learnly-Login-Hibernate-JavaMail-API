@@ -29,7 +29,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="txtUsername" layoutX="59.0" layoutY="116.0" prefHeight="30.0" prefWidth="200.0" promptText="Username or Email" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtUsername" layoutX="59.0" layoutY="116.0" prefHeight="30.0" prefWidth="200.0" promptText="Student Id" style="-fx-background-radius: 30;" />
             <Button fx:id="btnLogin" layoutX="59.0" layoutY="220.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 30; -fx-background-color: #7183E9;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
