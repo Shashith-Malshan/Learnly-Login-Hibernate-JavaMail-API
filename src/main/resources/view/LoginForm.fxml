@@ -29,15 +29,15 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="59.0" layoutY="116.0" prefHeight="30.0" prefWidth="200.0" promptText="Username or Email" style="-fx-background-radius: 30;" />
-            <Button layoutX="59.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 30; -fx-background-color: #7183E9;" text="Login" textFill="WHITE">
+            <TextField fx:id="txtUsername" layoutX="59.0" layoutY="116.0" prefHeight="30.0" prefWidth="200.0" promptText="Username or Email" style="-fx-background-radius: 30;" />
+            <Button fx:id="btnLogin" layoutX="59.0" layoutY="220.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 30; -fx-background-color: #7183E9;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
             <Text layoutX="72.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Text layoutX="199.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" />
-            <PasswordField layoutX="59.0" layoutY="169.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30;" />
+            <Text fx:id="txtSignUp" layoutX="199.0" layoutY="279.0" onMouseClicked="#signUpOnClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" />
+            <PasswordField fx:id="txtPassword" layoutX="59.0" layoutY="169.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30;" />
          </children>
       </Pane>
       <Pane layoutX="474.0" layoutY="559.0" prefHeight="16.0" prefWidth="25.0" style="-fx-background-color: #1D202A;" />

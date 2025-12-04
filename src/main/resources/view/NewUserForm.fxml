@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewUserFormController">
     <children>
         <ImageView fitHeight="600.0" fitWidth="500.0">
             <image>
@@ -19,25 +19,30 @@
         </ImageView>
         <Pane layoutX="91.0" layoutY="125.0" prefHeight="349.0" prefWidth="318.0" style="-fx-background-color: #ffff; -fx-background-radius: 20; -fx-opacity: 90%;">
             <children>
-                <Text layoutX="80.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learnly Login">
+                <Text layoutX="67.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learnly Sign Up">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="24.0" />
                     </font>
                 </Text>
-                <Text layoutX="90.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME BACK!">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Text>
-                <TextField layoutX="59.0" layoutY="116.0" prefHeight="30.0" prefWidth="200.0" promptText="Username or Email" style="-fx-background-radius: 30;" />
-                <Button layoutX="59.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 30; -fx-background-color: #7183E9;" text="Login" textFill="WHITE">
+                <TextField fx:id="txtEmail" layoutX="59.0" layoutY="71.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" style="-fx-background-radius: 30;" />
+                <Button fx:id="btnCreate" layoutX="59.0" layoutY="237.0" mnemonicParsing="false" onAction="#createAccountOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 30; -fx-background-color: #7183E9;" text="Create Account" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Text layoutX="72.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-                <Text layoutX="199.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" />
-                <PasswordField layoutX="59.0" layoutY="169.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30;" />
+                <Text layoutX="72.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+                <Text fx:id="txtLogin" layoutX="210.0" layoutY="295.0" onMouseClicked="#loginOnMouseClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" />
+                <PasswordField fx:id="txtPassword" layoutX="59.0" layoutY="191.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30;" />
+            <TextField fx:id="otp1" layoutX="71.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
+            <TextField fx:id="otp2" layoutX="100.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
+            <TextField fx:id="otp3" layoutX="129.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
+            <TextField fx:id="otp4" layoutX="157.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
+            <Button fx:id="btnGetOtp" layoutX="157.0" layoutY="110.0" mnemonicParsing="false" onAction="#getOtpOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #7183E9;" text="Get otp" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Pane layoutX="384.0" layoutY="435.0" prefHeight="16.0" prefWidth="25.0" style="-fx-background-color: #1D202A;" />
             </children>
         </Pane>
     </children>
