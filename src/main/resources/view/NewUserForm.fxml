@@ -19,7 +19,7 @@
         </ImageView>
         <Pane layoutX="91.0" layoutY="125.0" prefHeight="349.0" prefWidth="318.0" style="-fx-background-color: #ffff; -fx-background-radius: 20; -fx-opacity: 90%;">
             <children>
-                <Text layoutX="67.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learnly Sign Up">
+                <Text layoutX="67.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learnly Sign Up">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="24.0" />
                     </font>
@@ -36,13 +36,14 @@
             <TextField fx:id="otp1" layoutX="71.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
             <TextField fx:id="otp2" layoutX="100.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
             <TextField fx:id="otp3" layoutX="129.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
-            <TextField fx:id="otp4" layoutX="157.0" layoutY="150.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
+            <TextField fx:id="otp4" layoutX="157.0" layoutY="150.0" onKeyReleased="#verifyOtp" prefHeight="30.0" prefWidth="25.0" style="-fx-background-radius: 5;" />
             <Button fx:id="btnGetOtp" layoutX="157.0" layoutY="110.0" mnemonicParsing="false" onAction="#getOtpOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #7183E9;" text="Get otp" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
             <Pane layoutX="384.0" layoutY="435.0" prefHeight="16.0" prefWidth="25.0" style="-fx-background-color: #1D202A;" />
+            <Text fx:id="txtStatus" layoutX="188.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             </children>
         </Pane>
     </children>
