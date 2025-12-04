@@ -40,5 +40,6 @@
             <PasswordField layoutX="59.0" layoutY="169.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30;" />
          </children>
       </Pane>
+      <Pane layoutX="474.0" layoutY="559.0" prefHeight="16.0" prefWidth="25.0" style="-fx-background-color: #1D202A;" />
    </children>
 </AnchorPane>
