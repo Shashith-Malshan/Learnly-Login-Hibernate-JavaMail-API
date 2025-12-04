@@ -1,5 +1,6 @@
 package controller;
 
+import config.EmailConfig;
 import controller.impl.NewUserImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Student;
@@ -17,8 +20,12 @@ import model.Student;
 import java.io.IOException;
 
 public class NewUserFormController {
+
     Stage stage=new Stage();
     NewUser newUser=new NewUserImpl();
+    EmailConfig emailConfig=new EmailConfig();
+
+    private String otp;
 
     @FXML
     private Button btnCreate;
@@ -45,6 +52,9 @@ public class NewUserFormController {
     private Text txtLogin;
 
     @FXML
+    private Text txtStatus;
+
+    @FXML
     private PasswordField txtPassword;
 
     @FXML
@@ -53,6 +63,9 @@ public class NewUserFormController {
         String id=getNextId(getLastId());
         String email=txtEmail.getText();
         String password=txtPassword.getText();
+
+
+
 
         newUser.save(new Student(id,email,password));
 
@@ -64,6 +77,15 @@ public class NewUserFormController {
 
 
     }
+
+    public boolean isValidEmail(String email) {
+        if (email == null || email.isEmpty()) return false;
+
+
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email.matches(regex);
+    }
+
 
     private String getNextId(String lastId) {
         if (lastId == null || lastId.isEmpty()) {
@@ -82,7 +104,31 @@ public class NewUserFormController {
 
     @FXML
     void getOtpOnAction(ActionEvent event) {
+        otp=generateOTP();
+        String email=txtEmail.getText();
 
+        if(isValidEmail(email)){
+            try {
+                emailConfig.sendOtpEmail(email,otp);
+                otp1.requestFocus();
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Enter a Valid email");
+            alert.showAndWait();
+        }
+
+
+    }
+
+    private String generateOTP() {
+        int otp = (int) (Math.random() * 9000) + 1000;
+        return String.valueOf(otp);
     }
 
     @FXML
@@ -95,4 +141,21 @@ public class NewUserFormController {
         }
     }
 
+    public void verifyOtp(KeyEvent keyEvent) {
+
+        String enteredOtp=otp1.getText().trim()+otp2.getText().trim()+otp3.getText().trim()+otp4.getText().trim();
+
+        if(enteredOtp.equals(otp)){
+            otp1.setEditable(false);
+            otp2.setEditable(false);
+            otp3.setEditable(false);
+            otp4.setEditable(false);
+            txtEmail.setEditable(false);
+            txtStatus.setFill(Color.GREEN);
+            txtStatus.setText("Verified");
+        }else {
+            txtStatus.setFill(Color.RED);
+            txtStatus.setText("Not Verified");
+        }
+    }
 }
