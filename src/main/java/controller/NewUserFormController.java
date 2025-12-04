@@ -1,5 +1,6 @@
 package controller;
 
+import controller.impl.NewUserImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 public class NewUserFormController {
     Stage stage=new Stage();
+    NewUser newUser=new NewUserImpl();
 
     @FXML
     private Button btnCreate;
@@ -45,6 +47,8 @@ public class NewUserFormController {
 
     @FXML
     void createAccountOnAction(ActionEvent event) {
+
+
 
     }
 
