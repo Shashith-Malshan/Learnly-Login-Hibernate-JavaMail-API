@@ -21,6 +21,8 @@ public class LoginFormController {
     Stage stage=new Stage();
     Login login=new LoginImpl();
 
+
+
     @FXML
     private Button btnLogin;
 
@@ -38,12 +40,20 @@ public class LoginFormController {
         String id=txtUsername.getText();
         String password=txtPassword.getText();
 
+
         Student student=login.getStudentById(id);
         if(student.getPassword().equals(password)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login Status");
             alert.setHeaderText(null);
             alert.setContentText("Successfully logged in!");
+            alert.showAndWait();
+        }else {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Login Status");
+            alert.setHeaderText(null);
+            alert.setContentText("Login Failed!");
             alert.showAndWait();
         }
 
@@ -62,6 +72,10 @@ public class LoginFormController {
             throw new RuntimeException(e);
         }
         stage.show();
+
+        Stage currentStage= (Stage) btnLogin.getScene().getWindow();
+        currentStage.close();
+
 
     }
 

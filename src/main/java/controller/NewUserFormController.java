@@ -65,17 +65,22 @@ public class NewUserFormController {
         String password=txtPassword.getText();
 
 
+        if(txtStatus.getText().equalsIgnoreCase("Verified")){
+            newUser.save(new Student(id,email,password));
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successfully Created");
+            alert.setHeaderText(null);
+            alert.setContentText("Your Student Id is "+id);
+            alert.showAndWait();
+        }else {
 
-        newUser.save(new Student(id,email,password));
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Successfully Created");
-        alert.setHeaderText(null);
-        alert.setContentText("Your Student Id is "+id);
-        alert.showAndWait();
-
-
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Failed to Create");
+            alert.setHeaderText(null);
+            alert.setContentText("Verify the email and Try again");
+            alert.showAndWait();
+        }
     }
 
     public boolean isValidEmail(String email) {
@@ -139,6 +144,9 @@ public class NewUserFormController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        Stage currentStage= (Stage) txtLogin.getScene().getWindow();
+        currentStage.close();
     }
 
     public void verifyOtp(KeyEvent keyEvent) {
